@@ -27,19 +27,37 @@ async function initialize() {
   };
   elements = stripe.elements({ appearance, clientSecret });
 
-  const paymentElement = elements.create("payment");
+  const paymentElement = elements.create("payment", {
+    // fields: {
+    //   billingDetails: {
+    //     address: {
+    //       country: "never",
+    //     },
+    //   },
+    // },
+  });
   paymentElement.mount("#payment-element");
 }
 
 async function handleSubmit(e) {
   e.preventDefault();
   setLoading(true);
+  const name = document.querySelector("#name").value;
+  const email = document.querySelector("#email").value;
+  const postal_code = document.querySelector("#postal_code").value;
 
   const { error } = await stripe.confirmPayment({
     elements,
     confirmParams: {
       // Make sure to change this to your payment completion page
       return_url: "http://localhost:4242/checkout.html",
+      payment_method_data: {
+        billing_details: {
+          name,
+          email,
+          address: { postal_code },
+        },
+      },
     },
   });
 

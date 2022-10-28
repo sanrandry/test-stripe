@@ -1,7 +1,7 @@
 const express = require("express");
 var cors = require("cors");
 const app = express();
-console.log("qfds");
+
 app.use(
   cors({
     origin: function (origin, callback) {
@@ -42,9 +42,12 @@ app.post("/create-payment-intent", async (req, res) => {
   // Create a PaymentIntent with the order amount and currency
   const paymentIntent = await stripe.paymentIntents.create({
     amount: calculateOrderAmount(items),
-    currency: "usd",
+    currency: "eur",
     automatic_payment_methods: {
       enabled: true,
+    },
+    metadata: {
+      order_id: "6735",
     },
   });
 

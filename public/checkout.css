@@ -56,9 +56,11 @@ button {
   box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
   width: 100%;
 }
+
 button:hover {
   filter: contrast(115%);
 }
+
 button:disabled {
   opacity: 0.5;
   cursor: default;
@@ -70,6 +72,7 @@ button:disabled {
 .spinner:after {
   border-radius: 50%;
 }
+
 .spinner {
   color: #ffffff;
   font-size: 22px;
@@ -83,11 +86,13 @@ button:disabled {
   -ms-transform: translateZ(0);
   transform: translateZ(0);
 }
+
 .spinner:before,
 .spinner:after {
   position: absolute;
   content: "";
 }
+
 .spinner:before {
   width: 10.4px;
   height: 20.4px;
@@ -100,6 +105,7 @@ button:disabled {
   -webkit-animation: loading 2s infinite ease 1.5s;
   animation: loading 2s infinite ease 1.5s;
 }
+
 .spinner:after {
   width: 10.4px;
   height: 10.2px;
@@ -118,16 +124,19 @@ button:disabled {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
+
 @keyframes loading {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -139,4 +148,17 @@ button:disabled {
     width: 80vw;
     min-width: initial;
   }
+}
+
+
+.input {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: montserrat;
+  color: #2C3E50;
+  font-size: 13px;
 }
