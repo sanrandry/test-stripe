@@ -43,9 +43,10 @@ app.post("/create-payment-intent", async (req, res) => {
   const paymentIntent = await stripe.paymentIntents.create({
     amount: calculateOrderAmount(items),
     currency: "eur",
-    automatic_payment_methods: {
-      enabled: true,
-    },
+    // automatic_payment_methods: {
+    //   enabled: true,
+    // },
+    payment_method_types: ["card", "bancontact"],
     metadata: {
       order_id: "6735",
     },
